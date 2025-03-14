@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/header', { title: title }) %>
+<link rel="stylesheet" href="/form.css">
+<body>
+    <%- include('partials/nav') %>
+    <%- include("partials/errors.ejs") %>
+    <form class="editForm" action="<%= `${locals.baseUrl}/item/edit?id=${itemId}` %>" method="POST">
+        <div class="editEntry">
+            <label for="name">Item Name:</label>
+            <input name="name" id="name" value="<%= item.item %>" type="text">
+        </div>
+        <div class="editEntry">
+            <label for="price">Price ($):</label>
+            <input name="price" id="price" value="<%= item.price %>" type="text">
+        </div>
+        <div class="editEntry">
+            <label for="category">Category:</label>
+            <select name="category" id="category">
+                <% categories.forEach((ctgr) => { %>
+                    <option value="<%= ctgr.id %>" <%= item.cat_id===ctgr.id?'selected':'' %> ><%= ctgr.category %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="editEntry">
+            <label for="city">City:</label>
+            <select name="city" id="city">
+                <% cities.forEach((city) => { %>
+                    <option value="<%= city %>" <%= item.city===city?'selected':'' %> ><%= city %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="editEntry">
+            <label for="store">Store:</label>
+            <select name="store" id="store">
+                <% stores.forEach((store) => { %>
+                    <option value="<%= store %>" <%= item.store===store?'selected':'' %> ><%= store %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="editEntry">
+            <label for="url">URL:</label>
+            <input name="url" id="url" value="<%= item.url %>" type="text">
+        </div>
+        <div class="submitBtn">
+            <button>Submit</button>
+        </div>
+    </form>
+    <%- include('partials/footer') %>
+</body>
+</html>

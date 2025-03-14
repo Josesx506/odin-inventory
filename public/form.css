@@ -1,0 +1,62 @@
+.editForm {
+    width: min(80%, 600px);
+    margin: 0 auto;
+}
+
+.editEntry {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.5em;
+    gap: 0.1em;
+    position: relative;
+    & label {
+        font-family: Poppins;
+        font-weight: 500;
+    }
+    & input, & select {
+        font-family: Montserrat;
+        padding: 0.25em 0.4em;
+        border-radius: 0.5em;
+        border: 1px solid black;
+        font-size: 1rem;
+    }
+    & option {
+        vertical-align: middle;
+        font-size: inherit;
+    }
+}
+
+.submitBtn {
+    width: fit-content;
+    margin: 1em auto;
+    & button {
+        font-family: Poppins;
+        font-weight: bold;
+        padding: 0.25em 1em;
+        border-radius: 0.8em;
+        border: 1px solid black;
+        &:hover {
+            cursor: pointer;
+            color: #1a8af3;
+            background-color: white;
+            border: 1px solid #1a8af3;
+        }
+    }
+}
+
+.errorList {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 0;
+}
+
+.errorLine {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    & svg {
+        color: red;
+    }
+}

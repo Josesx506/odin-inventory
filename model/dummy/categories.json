@@ -1,0 +1,58 @@
+[
+  {
+    "category": "Beef",
+    "url": "https://images.unsplash.com/photo-1551028150-64b9f398f678?w=250&h=250&fit=crop"
+  },
+  {
+    "category": "Poultry",
+    "url": "https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=250&h=250&fit=crop"
+  },
+  {
+    "category": "Vegetables",
+    "url": "https://images.unsplash.com/photo-1557844352-761f2565b576?w=250&h=250&fit=crop"
+  },
+  {
+    "category": "Fruits",
+    "url": "https://images.unsplash.com/photo-1519996529931-28324d5a630e?w=250&h=250&fit=crop"
+  },
+  {
+    "category": "Bakery",
+    "url": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=250&h=250&fit=crop"
+  },
+  {
+    "category": "Snacks",
+    "url": "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=250&h=250&fit=crop"
+  },
+  {
+    "category": "Spices",
+    "url": "https://images.unsplash.com/photo-1532336414038-cf19250c5757?w=250&h=250&fit=crop"
+  },
+  {
+    "category": "Kitchen",
+    "url": "https://images.pexels.com/photos/2724748/pexels-photo-2724748.jpeg?fit=crop&cs=tinysrgb&w=250&h=250&dpr=1"
+  },
+  {
+    "category": "Dairy",
+    "url": "https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?fit=crop&cs=tinysrgb&w=250&h=250&dpr=1"
+  },
+  {
+    "category": "Seafood",
+    "url": "https://images.pexels.com/photos/28701103/pexels-photo-28701103/free-photo-of-delicious-sushi-platter-with-fresh-seafood.jpeg?fit=crop&cs=tinysrgb&w=250&h=250&dpr=1"
+  },
+  {
+    "category": "Beverages",
+    "url": "https://images.pexels.com/photos/3028500/pexels-photo-3028500.jpeg?fit=crop&cs=tinysrgb&w=250&h=250&dpr=1"
+  },
+  {
+    "category": "Alcohol",
+    "url": "https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?fit=crop&cs=tinysrgb&w=250&h=250&dpr=1"
+  },
+  {
+    "category": "Confectionery",
+    "url": "https://images.pexels.com/photos/19532206/pexels-photo-19532206/free-photo-of-flowers-on-and-around-stand.jpeg?fit=crop&cs=tinysrgb&w=250&h=250&dpr=1"
+  },
+  {
+    "category": "Default",
+    "url": "https://images.unsplash.com/photo-1553546895-531931aa1aa8?w=250&h=250&fit=crop"
+  }
+]

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/header', { title: title }) %>
+<link rel="stylesheet" href="/item.css">
+<body>
+    <%- include('partials/nav') %>
+    <ul class="itemCardList">
+        <% items.forEach((obj) => { %>
+            <li class="cardItem">
+                <div class="modRow">
+                    <a href="<%= `${locals.baseUrl}/item/edit?id=${obj.id}` %>"><i class="fa-solid fa-pencil"></i></a>
+                    <button onclick="confirmDelete('<%= obj.id %>')">
+                        <i class="fa-solid fa-xmark delBtn"></i>
+                    </button>
+                </div>
+                <div class="itemRow1">
+                    <div class="itemImg">
+                        <img src="<%= obj.url.replace('w=120&h=120','w=80&h=80') %>" alt="inventory item image">
+                    </div>
+                    <div><%= fmtr.format(obj.price) %></div>
+                </div>
+                <div class="itemRow2">
+                    <%= obj.item %>
+                </div>
+                <div class="itemRow3">
+                    <div><i class="fa-solid fa-ranking-star"></i> <%= obj.store %></div>
+                    <div><i class="fa-solid fa-location-dot  fa-beat" style="--fa-animation-duration: 5s; --fa-beat-scale: 1.2;"></i> <%= obj.city %></div>
+                </div>
+            </li>
+        <% }) %>
+    </ul>
+    <script>
+        async function confirmDelete(itemId) {
+            const password = prompt("Enter the password to delete this item:");
+            
+            if (!password) return;
+
+            const response = await fetch(`/item/${itemId}?pswd=${password}`, {
+                method: "DELETE",
+            });
+
+            const result = await response.json();
+            alert(result.message);
+
+            if (response.ok) {
+                location.reload();
+            }
+        }
+    </script>
+    <%- include('partials/footer') %>
+</body>
+</html>

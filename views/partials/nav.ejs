@@ -1,0 +1,21 @@
+<nav class="navBar">
+    <div class="logo">Inventory</div>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="https://josesx506.github.io/Odin_Project_FS/">Odin</a></li>
+        <li><a href="<%= `${locals.baseUrl}/` %>">Home</a></li>
+        <li><a href="<%= `${locals.baseUrl}/categories` %>">Categories</a></li>
+    </ul>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <i class="fas fa-search search-icon"></i>
+        <div id="searchResults" class="search-results"></div>
+    </div>
+    
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>

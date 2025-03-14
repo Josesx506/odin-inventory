@@ -1,0 +1,29 @@
+.container > h3 {
+    margin-bottom: 0.3em;
+    font-family: Poppins;
+}
+
+.indexList {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.4em;
+}
+
+.indexItem {
+    padding: 0.2em 0.5em;
+    border-radius: 0.5em;
+    font-family: Montserrat;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 6px;
+    transition: transform 0.2s ease-in-out;
+    &:hover {
+        transform: scaleY(1.02);
+        font-weight: bold;
+        & a > i {
+            color: #80b8ee;
+            transition: color 0.2s ease-in-out;
+        }
+    }
+}

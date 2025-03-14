@@ -1,0 +1,66 @@
+<footer>
+    <div style="text-align: center; padding-top: 1em; font-family: Montserrat; font-weight: bold; font-style: oblique;">
+        Admin password is "odin"
+    </div>
+    <script defer>
+       document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('searchResults');
+            let debounceTimer;
+
+            // Event listener for input with debouncing
+            searchInput.addEventListener('input', () => {
+                clearTimeout(debounceTimer);
+                const query = searchInput.value.trim();
+                if (!query) return clearResults();
+                debounceTimer = setTimeout(() => fetchSearchResults(query), 300);
+            });
+
+            // Close results when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                    searchResults.classList.remove('active');
+                }
+            });
+
+            async function fetchSearchResults(query) {
+                try {
+                    const response = await fetch("<%= `${locals.baseUrl}/search?q=` %>"+`${encodeURIComponent(query)}`);
+                    const results = await response.json();
+                    renderResults(results, query);
+                } catch (error) {
+                    console.error('Search Error:', error);
+                }
+            }
+
+            function renderResults(results, query) {
+                searchResults.innerHTML = results.length 
+                    ? results.map(item => createResultItem(item, query)).join('')
+                    : `<div class="search-result-item">No results found</div>`;
+
+                searchResults.classList.add('active');
+                attachClickEvents();
+            }
+
+            function createResultItem(item, query) {
+                const highlightedName = item.category.replace(new RegExp(`(${query})`, 'gi'), '<span class="highlight">$1</span>');
+                return `
+                    <div class="search-result-item" data-id="${item.id}">
+                        <div>${highlightedName}</div>
+                    </div>`;
+            }
+
+            function attachClickEvents() {
+                document.querySelectorAll('.search-result-item').forEach(item => {
+                    item.addEventListener('click', () => window.location.href = "<%= `${locals.baseUrl}/categories?id=` %>"+`${item.dataset.id}`);
+                });
+            }
+
+            function clearResults() {
+                searchResults.innerHTML = '';
+                searchResults.classList.remove('active');
+            }
+        
+        }); 
+    </script>
+</footer>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/header', { title: title }) %>
+<link rel="stylesheet" href="/category.css">
+<body>
+    <%- include('partials/nav') %>
+    <div class="container section">
+        <ul class="indexCards">
+            <% categories.forEach((row) => { %>
+            <li class="cardItem">
+                <a href="<%= `${locals.baseUrl}/categories?id=${row.id}` %>">
+                    <img src="<%= row.url %>" alt="">
+                    <div class="itemName"><%= row.category %></div>
+                    <div><%= row.total %> items</div>
+                </a>
+            </li>
+            <% }) %>
+        </ul>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+</html>

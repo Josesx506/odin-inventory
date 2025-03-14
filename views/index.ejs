@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/header', { title: title }) %>
+<link rel="stylesheet" href="/index.css">
+<body>
+    <%- include('partials/nav') %>
+    <div class="container">
+        <h3>Browse by City</h3>
+        <ul class="indexList">
+            <% cities.forEach((city) => { %>
+            <li class="indexItem">
+                <a href="<%= `${locals.baseUrl}/city?name=${city}` %>">
+                    <i class="fa-solid fa-city"></i> <%= city %>
+                </a>
+            </li>
+            <% }) %>
+        </ul>
+    </div>
+    <div class="container">
+        <h3>Browse by Supplier</h3>
+        <ul class="indexList">
+            <% stores.forEach((store) => { %>
+            <li class="indexItem">
+                <a href="<%= `${locals.baseUrl}/store?name=${store}` %>">
+                    <i class="fa-solid fa-store"></i> <%= store %>
+                </a>
+            </li>
+            <% }) %>
+        </ul>
+    </div>
+    <%- include('partials/footer') %>
+</body>
+</html>
