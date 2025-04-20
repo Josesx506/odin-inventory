@@ -20,7 +20,7 @@
     transition: transform 0.2s ease-in-out;
     &:hover {
         transform: scaleY(1.02);
-        font-weight: bold;
+        text-shadow: 0 0 1.0px currentColor;
         & a > i {
             color: #80b8ee;
             transition: color 0.2s ease-in-out;
