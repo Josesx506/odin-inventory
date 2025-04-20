@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS inv_items (
   city VARCHAR ( 255 ),
   store VARCHAR ( 255 ),
   address VARCHAR ( 512 ),
-  cat_id INTEGER REFERENCES inv_ctgr(id),
+  cat_id INTEGER REFERENCES inv_ctgr(id) ON DELETE CASCADE,
   item VARCHAR ( 255 ),
   qty INTEGER,
   price FLOAT,
@@ -69,8 +69,15 @@ async function main() {
     });
     await client.connect();
     await client.query(CREATETABLES);
-    await client.query(insertCATEGORY);
-    await client.query(insertINVENTORY);
+    // Check if the db has any values 
+    const { rows } = await client.query("SELECT COUNT(*) FROM inv_items");
+    if (parseInt(rows[0].count) === 0) {
+      console.log("DB empty, populating db");
+      await client.query(insertCATEGORY);
+      await client.query(insertINVENTORY);
+    } else {
+      console.log("DB contains values, skipping seeding");
+    }
     await client.end();
     console.log("done");
 }
